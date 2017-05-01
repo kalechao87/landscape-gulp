@@ -7,7 +7,7 @@ var gulp = require('gulp');
 // var sass = require('gulp-sass'); //  because of using compass
 var compass = require('gulp-compass');
 var autoprefixer = require('gulp-autoprefixer');
-var sourcemaps = require('gulp-sourcemaps')
+var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync');
 var useref = require('gulp-useref');
 var gulpif = require('gulp-if');
@@ -17,30 +17,41 @@ var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var del = require('del');
 var runSequence = require('run-sequence');
+var plumber = require('gulp-plumber');
 
 // Development Tasks
 // -----------------
 
 //  sass, using compass default
 // gulp.task('sass', function(){
-//   return gulp.src('app/scss/**/*.scss') // Gets all files ending with .scss in app/scss and children dirs
-//     .pipe(sourcemaps.init())  //Initialize sourcemap plugin
-//     .pipe(sass()) // converts Sass to CSS with gulp-sass
-//     .pipe(autoprefixer())  // Passes it through gulp-autoprefixer
-//     .pipe(sourcemaps.write()) //Writing sourcemaps
-//     .pipe(gulp.dest('app/css')) // Outputs it in the css folder
-//     .pipe(browserSync.reload({  // Reloading with Browser Sync
-//       stream: true
-//     }))
+//     return gulp.src('app/scss/**/*.scss') // Gets all files ending with .scss in app/scss and children dirs
+//         .pipe(plumber())
+//         .pipe(sourcemaps.init())  //Initialize sourcemap plugin
+//         .pipe(sass().on('error', sass.logError)) // converts Sass to CSS with gulp-sass
+//         .pipe(autoprefixer({
+//             browsers: ['last 2 versions', 'Android >= 4.0'],
+//             cascade: true,
+//             remove: true
+//         }))
+//         .pipe(sourcemaps.write('./maps')) //Writing sourcemaps
+//         .pipe(gulp.dest('app/css')) // Outputs it in the css folder
+//         .pipe(browserSync.reload({  // Reloading with Browser Sync
+//             stream: true
+//         }))
 // });
 
 //  compass, because of using compass's default sourcemap function, so there's no need with gulp-sourcemaps plugin
 gulp.task('compass', function() {
-  gulp.src('app/scss/**/*.scss')  // Gets all files ending with .scss in app/scss and children dirs
+    gulp.src('app/scss/**/*.scss')  // Gets all files ending with .scss in app/scss and children dirs
     .pipe(compass({
       config_file: './config.rb',
       css: 'app/css',
       sass: 'app/scss'
+    }))
+    .pipe(autoprefixer({
+        browsers: ['last 2 versions', 'Android >= 4.0'],
+        cascade: true,
+        remove: true
     }))
     .pipe(gulp.dest('app/css')) // Outputs it in the css folder
     .pipe(browserSync.reload({  // Reloading with Browser Sync
