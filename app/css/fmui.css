@@ -1,0 +1,28 @@
+/*CSS Reset*/
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.6;
+  font-size: 14px;
+  color: #000000;
+  background-color: #fff;
+  -webkit-user-select: none;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  outline: 0;
+}
+
+a img {
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=fmui.css.map */

@@ -1,0 +1,43 @@
+@import "fmui";
+
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+}
+
+.body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transform-origin: 0% 0%;
+}
+
+#minisite {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1138px;
+    height: 640px;
+    margin: {
+        top: -320px;
+        left: -569px;
+    }
+    transform-origin: 50% 50%;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.page_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1138px;
+}

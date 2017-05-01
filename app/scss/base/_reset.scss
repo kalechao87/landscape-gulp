@@ -1,0 +1,28 @@
+@import "fn";
+
+/*CSS Reset*/
+* {
+    margin: 0;
+    padding: 0;
+    @include setTapColor();
+}
+
+body {
+    font-family: $fmuiFontDefault; 
+    line-height: 1.6;
+    font-size: $fmuiFontSizeDefault;
+    color: $fmuiTextColorTitle;
+    background-color: $fmuiBgColorDefault;   
+    -webkit-user-select: none;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    outline: 0;
+}
+
+a img {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+}
