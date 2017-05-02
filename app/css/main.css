@@ -237,3 +237,17 @@ html, body {
 /* 643--865 MX4,643--892 MX3 */
 /* 643--929 p6--p8,639--943 m7 */
 /* 639--1006 note3,639--1006 MX5 , 643--1013 s2  */
+/*sliders*/
+.swiper-container {
+  width: 100%;
+  padding-top: 156px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 600px;
+  height: 300px;
+  border: 10px solid #fff;
+}
